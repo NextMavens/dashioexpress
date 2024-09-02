@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Form with Progress Bar</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .progress-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .progress-bar::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: #ddd;
+        z-index: -1;
+        transform: translateY(-50%);
+      }
+
+      .progress-bar .progress {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: #4caf50;
+        z-index: -1;
+        transition: width 0.4s ease;
+        transform: translateY(-50%);
+      }
+
+      .step {
+        width: 30%;
+        text-align: center;
+        position: relative;
+      }
+
+      .step p {
+        background-color: #ddd;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        line-height: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .step.active p {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .form-step {
+        display: none;
+      }
+
+      .form-step.active {
+        display: block;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .btn-group {
+        text-align: center;
+      }
+
+      .btn-group button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .btn-group .prev-btn {
+        background-color: #ccc;
+      }
+
+      .btn-group .next-btn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .btn-group .submit-btn {
+        background-color: #2196f3;
+        color: white;
+      }
+
+      .recaptcha {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="progress-bar">
+        <div class="progress"></div>
+        <div class="step active">
+          <p>1</p>
+          <p>Basic Info</p>
+        </div>
+        <div class="step">
+          <p>2</p>
+          <p>Upload Docs</p>
+        </div>
+        <div class="step">
+          <p>3</p>
+          <p>Verification</p>
+        </div>
+      </div>
+
+      <form id="multi-step-form">
+        <!-- Step 1: Basic Information -->
+        <div class="form-step active">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+        </div>
+
+        <!-- Step 2: Document Uploads -->
+        <div class="form-step">
+          <div class="form-group">
+            <label for="doc1-side1">Document 1 - Side 1</label>
+            <input
+              type="file"
+              id="doc1-side1"
+              name="doc1-side1"
+              accept="image/*, .pdf"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="doc1-side2">Document 1 - Side 2</label>
+            <input
+              type="file"
+              id="doc1-side2"
+              name="doc1-side2"
+              accept="image/*, .pdf"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="doc2-side1">Document 2 - Side 1</label>
+            <input
+              type="file"
+              id="doc2-side1"
+              name="doc2-side1"
+              accept="image/*, .pdf"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="doc2-side2">Document 2 - Side 2</label>
+            <input
+              type="file"
+              id="doc2-side2"
+              name="doc2-side2"
+              accept="image/*, .pdf"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="doc3-side1">Document 3 - Side 1</label>
+            <input
+              type="file"
+              id="doc3-side1"
+              name="doc3-side1"
+              accept="image/*, .pdf"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="doc3-side2">Document 3 - Side 2</label>
+            <input
+              type="file"
+              id="doc3-side2"
+              name="doc3-side2"
+              accept="image/*, .pdf"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Step 3: Verification -->
+        <div class="form-step">
+          <div class="recaptcha">
+            <!-- Recaptcha Placeholder -->
+            <p>Recaptcha will go here</p>
+          </div>
+          <div class="btn-group">
+            <button type="submit" class="submit-btn">Submit Application</button>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="btn-group">
+          <button type="button" class="prev-btn" onclick="prevStep()">
+            Previous
+          </button>
+          <button type="button" class="next-btn" onclick="nextStep()">
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      let currentStep = 0;
+      const formSteps = document.querySelectorAll(".form-step");
+      const progressSteps = document.querySelectorAll(".progress-bar .step");
+      const progressBar = document.querySelector(".progress-bar .progress");
+
+      function showStep(step) {
+        formSteps.forEach((formStep, index) => {
+          formStep.classList.toggle("active", index === step);
+          progressSteps[index].classList.toggle("active", index <= step);
+        });
+        progressBar.style.width = `${(step / (formSteps.length - 1)) * 100}%`;
+      }
+
+      function nextStep() {
+        if (currentStep < formSteps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      }
+
+      function prevStep() {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      }
+
+      document
+        .getElementById("multi-step-form")
+        .addEventListener("submit", function (event) {
+          // Add form submission logic here
+          alert("Application Submitted!");
+          event.preventDefault();
+        });
+
+      // Initialize the first step
+      showStep(currentStep);
+    </script>
+  </body>
+</html>

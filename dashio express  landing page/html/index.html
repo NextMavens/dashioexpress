@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Address Autofill Form</title>
+    <style>
+      /* Add some basic styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .form-container {
+        max-width: 500px;
+        margin: auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Address Autofill Form</h1>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input id="address" type="text" placeholder="Enter your address" />
+      </div>
+      <div class="form-group">
+        <label for="postal_code">Postal Code</label>
+        <input id="postal_code" type="text" readonly />
+      </div>
+      <div class="form-group">
+        <label for="town">Town</label>
+        <input id="town" type="text" readonly />
+      </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7Y9LluIgkZII9Ujw9RICV_TMPhRjVOk&libraries=places"></script>
+    <script>
+      function initialize() {
+        const addressInput = document.getElementById("address");
+        const postalCodeInput = document.getElementById("postal_code");
+        const townInput = document.getElementById("town");
+
+        const autocomplete = new google.maps.places.Autocomplete(addressInput);
+
+        autocomplete.addListener("place_changed", function () {
+          const place = autocomplete.getPlace();
+
+          if (place.address_components) {
+            const addressComponents = place.address_components;
+
+            let postalCode = "";
+            let town = "";
+
+            for (let i = 0; i < addressComponents.length; i++) {
+              const component = addressComponents[i];
+              if (component.types.includes("postal_code")) {
+                postalCode = component.long_name;
+              }
+              if (component.types.includes("locality")) {
+                town = component.long_name;
+              }
+            }
+
+            postalCodeInput.value = postalCode;
+            townInput.value = town;
+          }
+        });
+      }
+
+      google.maps.event.addDomListener(window, "load", initialize);
+    </script>
+  </body>
+</html>

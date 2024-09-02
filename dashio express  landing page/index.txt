@@ -1,0 +1,16 @@
+COLORS
+
+
+        primary blue  = #061774
+        BUTTON BLUE = #00CEFF
+        BACKGROUND COLOR = #F0F0F0
+        CARD BLUE = #0033FF
+        GREY = #999999
+the address ,postal code, town
+
+
+success message
+proposal email
+success email
+
+
