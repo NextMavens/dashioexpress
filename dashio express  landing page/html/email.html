@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -30,233 +32,718 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <title>Dashio Express: Pre Registration Form</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/email.css" />
-    <title>Pre-registration Form</title>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
     <script type="text/javascript">
       (function () {
-        emailjs.init("YOUR_PUBLIC_KEY");
+        emailjs.init({
+          publicKey: "2rQNNvWwRlbdwELak"
+        });
       })();
     </script>
-    <script type="text/javascript">
-      window.onload = function () {
-        const successNotification = document.getElementById(
-          "success-notification"
-        );
-        const errorNotification = document.getElementById("error-notification");
-
-        document
-          .getElementById("contact-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            emailjs.sendForm("service_50gg8cn", "YOUR_TEMPLATE_ID", this).then(
-              function () {
-                showNotification(successNotification);
-              },
-              function (error) {
-                showNotification(errorNotification);
-              }
-            );
-          });
-
-        function showNotification(notificationElement) {
-          notificationElement.style.display = "block";
-
-          setTimeout(function () {
-            notificationElement.style.display = "none";
-          }, 5000); // Hide after 5 seconds
-        }
-      };
-    </script>
   </head>
-
   <body>
-    <div class="head">
-      <div
-        id="success-notification"
-        class="notification success"
-        style="display: none"
-      >
-        Pre-Registration was Successful
+    <main>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#"><img src="../assets/logo.svg" alt="Company Logo" /></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="form-container">
+        <h2 class="head-text">
+          Pre-Register with Dashio Express - Swift & Reliable Delivery
+          Solutions!
+        </h2>
+        <h4 class="head-subtext">
+          Be among the first to enjoy our express delivery services.
+        </h4>
+        <p class="head-description">
+          Complete the form below to pre-register with Dashio Express. We'll
+          notify you as soon as our services go live!
+        </p>
+
+        <div id="user-type-selection" class="user-type-selection">
+          <h3>I want to pre-register as a:</h3>
+          <div class="buttons">
+            <button id="driver-button" class="type-button">Driver</button>
+            <button id="client-button" class="type-button">Client</button>
+          </div>
+        </div>
+        <div id="clients-form" class="form-section" style="display: none">
+          <form id="multiStepForm-clients" onsubmit="">
+            <div class="progress-bar">
+              <div class="step active">1</div>
+              <div class="step">2</div>
+              <div class="step">3</div>
+            </div>
+
+            <!-- Step 1: Personal Information -->
+            <div class="form-step" id="step1-clients">
+              <h2>Personal Information</h2>
+              <div class="group">
+                <div class="field">
+                  <label for="firstname"
+                    >FIrst Name <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="clients-firstname"
+                    name="firstname"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="lastname"
+                    >Last Name <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="clients-lastname"
+                    name="lastname"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="group">
+                <div class="field">
+                  <label for="phone"
+                    >Phone Number <span class="star">*</span></label
+                  >
+                  <input type="tel" id="clients-phone" name="phone" required />
+                </div>
+                <div class="field">
+                  <label for="companyname"
+                    >Company Name <span class="star">*</span></label
+                  >
+                  <input
+                    required
+                    type="text"
+                    id="clients-companyname"
+                    name="companyname"
+                  />
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="email"
+                    >Email Address <span class="star">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="clients-email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="role">Position/Title</label>
+                  <input type="text" id="clients-role" name="role" />
+                </div>
+              </div>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 2: Business Information & Service Requirements -->
+            <div class="form-step" id="step2-clients">
+              <h2>Business Information & Service Requirements</h2>
+
+              <div class="group">
+                <div class="field">
+                  <label for="business-type">Business Type </label>
+                  <select id="clients-business-type" name="business-type">
+                    <option value="" disabled selected>
+                      Select Business Type
+                    </option>
+                    <option value="retail">Retail</option>
+                    <option value="wholesale">Wholesale</option>
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="service">Service</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="industry">Industry </label>
+                  <select id="clients-industry" name="industry">
+                    <option value="" disabled selected>Select Industry</option>
+                    <option value="food-beverage">Food & Beverage</option>
+                    <option value="technology">Technology</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="automotive">Automotive</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="group">
+                <div class="field">
+                  <label for="communication-method"
+                    >Preferred Communication Method
+                  </label>
+                  <select
+                    id="clients-communication-method"
+                    name="communication-method"
+                  >
+                    <option value="" disabled selected>
+                      Select Communication Method
+                    </option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="both">Both</option>
+                  </select>
+                </div>
+              </div>
+
+              <h2>Business Location</h2>
+              <div class="group">
+                <div class="field">
+                  <label for="country"
+                    >Country <span class="star">*</span></label
+                  >
+                  <select id="country " name="country" required>
+                    <option value="" disabled selected>Select Country</option>
+                    <option value="AT">Austria</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="DK">Denmark</option>
+                    <option value="EE">Estonia</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="GR">Greece</option>
+                    <option value="HU">Hungary</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IT">Italy</option>
+                    <option value="LV">Latvia</option>
+                    <option value="LT">Lithuania</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MT">Malta</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="RO">Romania</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="ES">Spain</option>
+                    <option value="SE">Sweden</option>
+                  </select>
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="street-address"
+                    >Street Address <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="street-address"
+                    name="street-address"
+                    required
+                    placeholder="Enter your address"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="street-number "
+                    >Street Number <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="street-number "
+                    name="street-number"
+                    required
+                    placeholder="Enter street number"
+                  />
+                </div>
+              </div>
+
+              <div class="group">
+                <div class="field">
+                  <label for="postal-code"
+                    >Postal Code <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="postal-code "
+                    name="postal-code"
+                    readonly
+                    placeholder="Postal Code"
+                  />
+                </div>
+                <div class="field">
+                  <label for="town">Town <span class="star">*</span></label>
+                  <input
+                    type="text"
+                    id="town"
+                    name="town"
+                    readonly
+                    placeholder="Town"
+                  />
+                </div>
+              </div>
+              <h2>Other Info</h2>
+              <div class="group">
+                <div class="field">
+                  <label for="goods-handled"
+                    >Type of Goods Handled <span class="star">*</span></label
+                  >
+                  <select id="goods-handled" name="goods-handled" required>
+                    <option value="" disabled selected>
+                      Select Goods Type
+                    </option>
+                    <option value="perishable">Perishable Goods</option>
+                    <option value="non-perishable">Non-Perishable Goods</option>
+                    <option value="hazardous">Hazardous Materials</option>
+                    <option value="fragile">Fragile Items</option>
+                    <option value="bulk">Bulk Goods</option>
+                    <option value="documents">Documents</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="volumeofshipment"
+                    >Expected Volume of Shipment</label
+                  >
+                  <select
+                    name="volumeofshipment"
+                    id="volumeofshipment"
+                    required
+                  >
+                    <option value="" disabled selected>Select Volume</option>
+                    <option value="1-10 shipments/month">
+                      1-10 shipments/month
+                    </option>
+                    <option value="11-20 shipments/month">
+                      11-20 shipments/month
+                    </option>
+                    <option value="21-50 shipments/month">
+                      21-50 shipments/month
+                    </option>
+                    <option value="51-100 shipments/month">
+                      51-100 shipments/month
+                    </option>
+                    <option value="101-200 shipments/month">
+                      101-200 shipments/month
+                    </option>
+                    <option value="201-500 shipments/month">
+                      201-500 shipments/month
+                    </option>
+                    <option value="501-1000 shipments/month">
+                      501-1000 shipments/month
+                    </option>
+                    <option value="1001-2000 shipments/month">
+                      1001-2000 shipments/month
+                    </option>
+                    <option value="2001-3000 shipments/month">
+                      2001-3000 shipments/month
+                    </option>
+                    <option value="3001+ shipments/month">
+                      3001+ shipments/month
+                    </option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="frequency"
+                    >Delivery Frequency <span class="star">*</span></label
+                  >
+                  <select id="frequency" name="frequency" required>
+                    <option value="" disabled selected>Select Frequency</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="special-requirements">Special Requirements</label>
+                  <textarea
+                    id="special-requirements"
+                    name="special-requirements"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 3: Agreement & Summary -->
+            <div class="form-step" id="step3-clients">
+              <h2>Agreement & Summary</h2>
+              <div id="summary">
+                <!-- Summary content will be dynamically populated -->
+              </div>
+              <div class="group">
+                <div class="field final-row">
+                  <input
+                    type="checkbox"
+                    id="termsAgreement"
+                    name="termsAgreement"
+                    required
+                  />
+                  <label for="termsAgreement"
+                    >I agree to the <a href="#">Terms and Conditions</a>
+                    <span class="star">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="group">
+                <div class="field final-row">
+                  <input
+                    type="checkbox"
+                    id="privacyAgreement"
+                    name="privacyAgreement"
+                    required
+                  />
+                  <label for="privacyAgreement"
+                    >I agree to the <a href="#">Privacy Policy</a>
+                    <span class="star">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="group">
+                <div class="field final-row">
+                  <input type="checkbox" id="newsletter" name="newsletter" />
+                  <label for="newsletter">Subscribe to our newsletter</label>
+                </div>
+              </div>
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="submit" class="submit-btn">
+                Submit Registration
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="drivers-form" class="form-section" style="display: none">
+          <form id="multiStepForm">
+            <div class="progress-bar">
+              <div class="step active">1</div>
+              <div class="step">2</div>
+              <div class="step">3</div>
+            </div>
+
+            <!-- Step 1: Basic Information -->
+            <div class="form-step" id="step1">
+              <h2>Basic Information</h2>
+              <div class="group">
+                <div class="field">
+                  <label for="firstname"
+                    >First Name <span class="star">*</span></label
+                  >
+                  <input type="text" id="firstname" name="firstname" required />
+                </div>
+                <div class="field">
+                  <label for="lastname"
+                    >Last Name <span class="star">*</span></label
+                  >
+                  <input type="text" id="lastname" name="lastname" required />
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="companyname"
+                    >Company Name <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="companyname"
+                    name="companyname"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="email">Email <span class="star">*</span></label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="phone">Phone <span class="star">*</span></label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+                <div class="field">
+                  <label for="street-address"
+                    >Street Address <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="street-address"
+                    name="street-address"
+                    required
+                    placeholder="Enter your address"
+                  />
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="street-number"
+                    >Street Number <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="street-number"
+                    name="street-number"
+                    required
+                    placeholder="Enter street number"
+                  />
+                </div>
+                <div class="field">
+                  <label for="postal-code"
+                    >Postal Code <span class="star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="postal-code"
+                    name="postal-code"
+                    readonly
+                    placeholder="Postal Code"
+                  />
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="town">Town <span class="star">*</span></label>
+                  <input
+                    type="text"
+                    id="town"
+                    name="town"
+                    readonly
+                    placeholder="Town"
+                  />
+                </div>
+                <div class="field">
+                  <label for="industry">Industry</label>
+                  <select name="industry" id="industry">
+                    <option value="" disabled selected>Select Industry</option>
+                    <option value="Retail">Retail</option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Wholesale Distribution">
+                      Wholesale Distribution
+                    </option>
+                    <option value="Healthcare/Pharmaceuticals">
+                      Healthcare/Pharmaceuticals
+                    </option>
+                    <option value="Food and Beverage">Food and Beverage</option>
+                    <option value="Electronics/Technology">
+                      Electronics/Technology
+                    </option>
+                    <option value="Fashion/Apparel">Fashion/Apparel</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Import/Export">Import/Export</option>
+                    <option value="Logistics/Freight">Logistics/Freight</option>
+                    <option value="Education/Books">Education/Books</option>
+                    <option value="Office Supplies/Stationery">
+                      Office Supplies/Stationery
+                    </option>
+                    <option value="Furniture/Home Goods">
+                      Furniture/Home Goods
+                    </option>
+                    <option value="Event Planning/Entertainment">
+                      Event Planning/Entertainment
+                    </option>
+                    <option value="Media/Publishing">Media/Publishing</option>
+                    <option value="Telecommunications">
+                      Telecommunications
+                    </option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <label for="role">Role</label>
+                  <select name="role" id="role">
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="CEO/Founder">CEO/Founder</option>
+                    <option value="Logistics Manager">Logistics Manager</option>
+                    <option value="Operations Manager">
+                      Operations Manager
+                    </option>
+                    <option value="Procurement Manager">
+                      Procurement Manager
+                    </option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="companysize">Company Size</label>
+                  <select name="companysize" id="companysize">
+                    <option value="" disabled selected>
+                      Select Company Size
+                    </option>
+                    <option value="Small Business">
+                      Small Business - 1-10 employees
+                    </option>
+                    <option value="Medium Business">
+                      Medium Business - 11-50 employees
+                    </option>
+                    <option value="Large Business">
+                      Large Business - 51-200 employees
+                    </option>
+                    <option value="Enterprise">
+                      Enterprise - 201+ employees
+                    </option>
+                    <option value="Freelancer">
+                      Freelancer/Sole Proprietor
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 2: Document Upload -->
+            <div class="form-step" id="step2">
+              <h2>Document Upload</h2>
+              <div class="group">
+                <div class="field">
+                  <h3>
+                    Gewerbeanmeldung (Trade Registration)
+                    <span class="star">*</span>
+                  </h3>
+
+                  <label for="gewerbeanmeldung-front"> Front:</label>
+                  <input
+                    type="file"
+                    id="gewerbeanmeldung-front"
+                    name="gewerbeanmeldung-front"
+                    accept="image/*,application/pdf"
+                    required
+                  />
+                  <div
+                    id="gewerbeanmeldung-front-preview"
+                    class="file-preview"
+                  ></div>
+
+                  <label for="gewerbeanmeldung-back"> Back:</label>
+                  <input
+                    type="file"
+                    id="gewerbeanmeldung-back"
+                    name="gewerbeanmeldung-back"
+                    required
+                    accept="image/*,application/pdf"
+                  />
+                  <div
+                    id="gewerbeanmeldung-back-preview"
+                    class="file-preview"
+                  ></div>
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <h3>
+                    Frachtführerversicherung (Carrier Insurance)
+                    <span class="star">*</span>
+                  </h3>
+                  <label for="frachtfuhrerversicherung-front">Front</label>
+                  <input
+                    type="file"
+                    id="frachtfuhrerversicherung-front"
+                    name="frachtfuhrerversicherung-front"
+                    accept="image/*,application/pdf"
+                    required
+                  />
+                  <div
+                    id="frachtfuhrerversicherung-front-preview"
+                    class="file-preview"
+                  ></div>
+                </div>
+                <div class="field">
+                  <label for="frachtfuhrerversicherung-back">Back</label>
+                  <input
+                    type="file"
+                    id="frachtfuhrerversicherung-back"
+                    name="frachtfuhrerversicherung-back"
+                    accept="image/*,application/pdf"
+                    required
+                  />
+                  <div
+                    id="frachtfuhrerversicherung-back-preview"
+                    class="file-preview"
+                  ></div>
+                </div>
+              </div>
+              <div class="group">
+                <div class="field">
+                  <h3>EU-Lizenz (EU Community License) - Optional</h3>
+                  <label for="euLizenz-front">Front</label>
+                  <input
+                    type="file"
+                    id="euLizenz-front"
+                    name="euLizenz-front"
+                    accept="image/*,application/pdf"
+                  />
+                  <div id="euLizenz-front-preview" class="file-preview"></div>
+                </div>
+                <div class="field">
+                  <label for="euLizenz-back">Back</label>
+                  <input
+                    type="file"
+                    id="euLizenz-back"
+                    name="euLizenz-back"
+                    accept="image/*,application/pdf"
+                  />
+                  <div id="euLizenz-back-preview" class="file-preview"></div>
+                </div>
+              </div>
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 3: Review and Submit -->
+            <div class="form-step" id="step3">
+              <h2>Review and Submit</h2>
+              <div id="previewInfo">
+                <!-- Preview information will be dynamically populated here -->
+              </div>
+              <div class="group">
+                <div class="field final-row">
+                  <input
+                    type="checkbox"
+                    id="termsAgreement"
+                    name="termsAgreement"
+                    required
+                  />
+                  <label for="termsAgreement"
+                    >I agree to the <a href="#">terms and conditions</a>
+                    <span class="star">*</span></label
+                  >
+                </div>
+              </div>
+              <button type="button" class="prev-btn">Previous</button>
+              <button type="submit" class="submit-btn">Pre-Register Now</button>
+            </div>
+          </form>
+        </div>
       </div>
-
-      <div
-        id="error-notification"
-        class="notification error"
-        style="display: none"
-      >
-        An error occurred. Please try again.
-      </div>
-
-      <img class="logo" src="../assets/logo.svg" alt="" />
-      <h4 class="intro">Join the Dashio Express Network!</h4>
-      <p class="intro-elaboration">
-        Be the first to experience seamless logistics and delivery solutions.
-        Pre-register now to stay ahead of the curve and get exclusive early
-        access to Dashio Express.
-      </p>
-      <h4 class="sub-intro">Why Pre-Register?</h4>
-      <ul>
-        <li>Priority access to our services upon launch</li>
-        <li>Exclusive offers and discounts</li>
-        <li>Tailored logistics solutions for your business needs</li>
-      </ul>
-    </div>
-    <div class="form-container">
-      <h3>Pre-Register Now</h3>
-
-      <form id="contact-form" method="post">
-        <div class="group">
-          <div class="field">
-            <label for="companyname">Company Name:</label>
-            <input type="text" name="companyname" id="companyname" required />
-          </div>
-          <div class="field">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required />
-          </div>
-        </div>
-        <div class="group">
-          <div class="field">
-            <label for="phone">Phone:</label>
-            <input type="tel" name="phone" id="phone" required />
-          </div>
-
-          <div class="field">
-            <label for="location">Location:</label>
-            <input type="text" name="location" id="location" required />
-          </div>
-        </div>
-        <div class="group">
-          <div class="field">
-            <label for="industry">Industry:</label>
-            <select name="industry" id="industry" required>
-              <option value="" disabled selected>Select Industry</option>
-              <option value="Retail">Retail</option>
-              <option value="E-commerce">E-commerce</option>
-              <option value="Manufacturing">Manufacturing</option>
-              <option value="Wholesale Distribution">
-                Wholesale Distribution
-              </option>
-              <option value="Healthcare/Pharmaceuticals">
-                Healthcare/Pharmaceuticals
-              </option>
-              <option value="Food and Beverage">Food and Beverage</option>
-              <option value="Electronics/Technology">
-                Electronics/Technology
-              </option>
-              <option value="Fashion/Apparel">Fashion/Apparel</option>
-              <option value="Automotive">Automotive</option>
-              <option value="Construction">Construction</option>
-              <option value="Agriculture">Agriculture</option>
-              <option value="Import/Export">Import/Export</option>
-              <option value="Logistics/Freight">Logistics/Freight</option>
-              <option value="Education/Books">Education/Books</option>
-              <option value="Office Supplies/Stationery">
-                Office Supplies/Stationery
-              </option>
-              <option value="Furniture/Home Goods">Furniture/Home Goods</option>
-              <option value="Event Planning/Entertainment">
-                Event Planning/Entertainment
-              </option>
-              <option value="Media/Publishing">Media/Publishing</option>
-              <option value="Telecommunications">Telecommunications</option>
-              <option value="Other">Other</option>
-            </select>
-            <input
-              type="text"
-              name="industry_other"
-              id="industry_other"
-              placeholder="Please specify"
-              style="display: none; margin-top: 10px"
-            />
-          </div>
-
-          <div class="field">
-            <label for="role">Role:</label>
-            <select name="role" id="role" required>
-              <option value="" disabled selected>Select Role</option>
-              <option value="CEO/Founder">CEO/Founder</option>
-              <option value="Logistics Manager">Logistics Manager</option>
-              <option value="Operations Manager">Operations Manager</option>
-              <option value="Procurement Manager">Procurement Manager</option>
-              <option value="Other">Other</option>
-            </select>
-            <input
-              type="text"
-              name="role_other"
-              id="role_other"
-              placeholder="Please specify"
-              style="display: none; margin-top: 10px"
-            />
-          </div>
-        </div>
-        <div class="group">
-          <div class="field">
-            <label for="companysize">Company Size:</label>
-            <input type="text" name="companysize" id="companysize" required />
-          </div>
-
-          <div class="field">
-            <label for="shipmenttype">Type of Shipment:</label>
-            <input type="text" name="shipmenttype" id="shipmenttype" required />
-          </div>
-        </div>
-        <div class="group">
-          <div class="field">
-            <label for="volumeofshipment">Volume of Shipment:</label>
-            <select name="volumeofshipment" id="volumeofshipment" required>
-              <option value="" disabled selected>Select Volume</option>
-              <option value="1-10 shipments/month">1-10 shipments/month</option>
-              <option value="11-20 shipments/month">
-                11-20 shipments/month
-              </option>
-              <option value="21-50 shipments/month">
-                21-50 shipments/month
-              </option>
-              <option value="51-100 shipments/month">
-                51-100 shipments/month
-              </option>
-              <option value="101-200 shipments/month">
-                101-200 shipments/month
-              </option>
-              <option value="201-500 shipments/month">
-                201-500 shipments/month
-              </option>
-              <option value="501-1000 shipments/month">
-                501-1000 shipments/month
-              </option>
-              <option value="1001-2000 shipments/month">
-                1001-2000 shipments/month
-              </option>
-              <option value="2001-3000 shipments/month">
-                2001-3000 shipments/month
-              </option>
-              <option value="3001+ shipments/month">
-                3001+ shipments/month
-              </option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="vehicletype">Vehicle Type:</label>
-            <input type="text" name="vehicletype" id="vehicletype" required />
-          </div>
-        </div>
-        <input type="submit" value="Pre-Register Now" class="btn" />
-        <br />
-        <p>Already have an account? <a href="login.php">Login now</a></p>
-      </form>
-    </div>
+    </main>
     <footer>
       <div class="newsletter">
         <div class="left">
@@ -275,24 +762,20 @@
       </div>
       <div class="footer">
         <div class="left">
-          <img class="footer-logo" src="../assets/logo.svg" alt="" />
+          <img class="footer-logo" src="assets/logo.svg" alt="" />
           <p>Delivering your goods,on time, everytime.</p>
           <div class="links">
-            <a
-              href="https://www.facebook.com/profile.php?id=61564314959516&mibextid=ZbWKwL"
-            >
-              <img class="link-icon" src="assets/facebook-icon.svg" alt="" />
+            <a href="">
+              <img class="link-icon" src="../assets/facebook-icon.svg" alt="" />
             </a>
-            <a href="https://x.com/dashioexpress?t=wxW_2lpt4uAfAANqASimdQ&s=09">
-              <img class="link-icon" src="assets/x-icon.svg" alt="" />
+            <a href="">
+              <img class="link-icon" src="../assets/x-icon.svg" alt="" />
             </a>
-            <a
-              href="https://www.instagram.com/dashioexpress?igsh=ZnZ3c2ZzaHY1azV2"
-            >
-              <img class="link-icon" src="assets/ig-icon.svg" alt="" />
+            <a href="">
+              <img class="link-icon" src="../assets/ig-icon.svg" alt="" />
             </a>
           </div>
-          <a class="footer-cta" href="email.html">Pre-Register Now</a>
+          <a class="footer-cta" href="">Pre-Register Now</a>
         </div>
         <div class="center">
           <div class="top">
@@ -325,7 +808,7 @@
               <li><a href="">Drivers Policy</a></li>
               <li><a href="">Company To Company Policy</a></li>
               <li><a href="">Terms & Conditions</a></li>
-              <li><a href="">Despute Resolution Policy</a></li>
+              <li><a href="">Dispute Resolution Policy</a></li>
               <li><a href="">Dashio Express Policy</a></li>
             </ul>
           </div>
@@ -349,6 +832,7 @@
       </div>
       <p class="copyright">© 2024 Dashio Express. All Rights Reserved.</p>
     </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7Y9LluIgkZII9Ujw9RICV_TMPhRjVOk&libraries=places"></script>
+    <script src="../js/email.js"></script>
   </body>
-  <script src="../js/index.js"></script>
 </html>

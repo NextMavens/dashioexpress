@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Client Pre-Registration Form</title>
+    <style>
+      .step {
+        display: none;
+      }
+      .step.active {
+        display: block;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .summary {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let currentStep = 0;
+      showStep(currentStep);
+
+      function showStep(n) {
+        let steps = document.getElementsByClassName("step");
+        steps[n].classList.add("active");
+        if (n == 0) {
+          document.getElementById("prevBtn").style.display = "none";
+        } else {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == steps.length - 1) {
+          document.getElementById("nextBtn").style.display = "none";
+          displaySummary();
+        } else {
+          document.getElementById("nextBtn").innerHTML = "Next";
+        }
+      }
+
+      function nextPrev(n) {
+        let steps = document.getElementsByClassName("step");
+        steps[currentStep].classList.remove("active");
+        currentStep += n;
+        if (currentStep >= steps.length) {
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        showStep(currentStep);
+      }
+
+      function displaySummary() {
+        document.getElementById("summary-name").innerText =
+          document.getElementById("full-name").value;
+        document.getElementById("summary-email").innerText =
+          document.getElementById("email").value;
+        document.getElementById("summary-phone").innerText =
+          document.getElementById("phone").value;
+        document.getElementById("summary-company").innerText =
+          document.getElementById("company").value;
+        document.getElementById("summary-position").innerText =
+          document.getElementById("position").value;
+        document.getElementById("summary-business-type").innerText =
+          document.getElementById("business-type").value;
+        document.getElementById("summary-industry").innerText =
+          document.getElementById("industry").value;
+        document.getElementById("summary-location").innerText =
+          document.getElementById("location").value;
+        document.getElementById("summary-communication-method").innerText =
+          document.getElementById("communication-method").value;
+        document.getElementById("summary-service-areas").innerText =
+          document.getElementById("service-areas").value;
+        document.getElementById("summary-goods-handled").innerText =
+          document.getElementById("goods-handled").value;
+        document.getElementById("summary-volume").innerText =
+          document.getElementById("volume").value;
+        document.getElementById("summary-frequency").innerText =
+          document.getElementById("frequency").value;
+        document.getElementById("summary-special-requirements").innerText =
+          document.getElementById("special-requirements").value;
+      }
+    </script>
+  </body>
+</html>

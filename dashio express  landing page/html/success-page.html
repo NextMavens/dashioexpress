@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Registration Successful - Dashio Express</title>
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-blue: #061774;
+        --light-blue-button: #00ceff;
+        --light-blue-button-dark: #00a3c9;
+        --background-color: #f0f0f0;
+        --light-blue-card: #0033ff;
+        --grey-numbers: #999999;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: var(--primary-blue);
+      }
+
+      .container {
+        background-color: var(--white);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+      }
+
+      .logo {
+        width: 150px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: var(--primary-blue);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: var(--grey-numbers);
+      }
+
+      strong {
+        color: var(--primary-blue);
+        font-weight: 600;
+      }
+
+      .email {
+        color: var(--light-blue-button);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .email:hover {
+        color: var(--light-blue-button-dark);
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: var(--light-blue-button);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 8px;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        font-weight: 600;
+      }
+
+      .button:hover {
+        background-color: var(--light-blue-button-dark);
+        transform: translateY(-2px);
+      }
+
+      .countdown {
+        font-weight: 500;
+        margin-top: 30px;
+        color: var(--grey-numbers);
+      }
+
+      #countdown {
+        font-weight: 700;
+        color: var(--primary-blue);
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 30px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="../assets/logo.svg" alt="Dashio Express Logo" class="logo" />
+      <h1>Pre-Registration Successful!</h1>
+      <p>
+        Thank you for registering with Dashio Express! We have received your
+        pre-registration and will begin reviewing your documentation.
+      </p>
+      <p><strong>What Happens Next?</strong></p>
+      <p>
+        Our team will carefully review the information and documents you
+        provided. Once everything is verified, we'll keep you updated on the
+        next steps and notify you when our system launches.
+      </p>
+      <p>
+        <strong>Important:</strong> Please check your email for further
+        information, including a link to download the policy documents. These
+        documents contain important guidelines and requirements that you'll need
+        to review as part of the registration process.
+      </p>
+      <p>
+        If you have any questions in the meantime, feel free to reach out to us
+        at
+        <a class="email" href="mailto:support@dashioexpress.com"
+          >support@dashioexpress.com</a
+        >.
+      </p>
+      <a href="../index.html" class="button">Go to Homepage</a>
+      <p class="countdown">
+        You will be redirected to the homepage in
+        <span id="countdown">60</span> seconds.
+      </p>
+    </div>
+    <script>
+      let countdown = 60;
+
+      function updateCountdown() {
+        const countdownElement = document.getElementById("countdown");
+        countdownElement.textContent = countdown;
+        if (countdown > 0) {
+          countdown--;
+          setTimeout(updateCountdown, 1000);
+        } else {
+          window.location.href = "../index.html";
+        }
+      }
+
+      window.onload = updateCountdown;
+    </script>
+  </body>
+</html>

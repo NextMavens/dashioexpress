@@ -1,0 +1,395 @@
+<!-- Driver Form -->
+<div id="drivers-form" style="display: none">
+  <div class="multiStepForm">
+    <div class="progress-bar"></div>
+    <div class="form-step">
+      <h2>Basic Information</h2>
+      <div class="group">
+        <div class="field">
+          <label for="firstname">First Name <span class="star">*</span></label>
+          <input type="text" id="firstname" name="firstname" required />
+        </div>
+        <div class="field">
+          <label for="lastname">Last Name <span class="star">*</span></label>
+          <input type="text" id="lastname" name="lastname" required />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="companyname"
+            >Company Name <span class="star">*</span></label
+          >
+          <input type="text" id="companyname" name="companyname" required />
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="star">*</span></label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="phone">Phone <span class="star">*</span></label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="field">
+          <label for="street-address"
+            >Street Address <span class="star">*</span></label
+          >
+          <input
+            type="text"
+            id="street-address"
+            name="street-address"
+            required
+            placeholder="Enter your address"
+          />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="street-number"
+            >Street Number <span class="star">*</span></label
+          >
+          <input
+            type="text"
+            id="street-number"
+            name="street-number"
+            required
+            placeholder="Enter street number"
+          />
+        </div>
+        <div class="field">
+          <label for="postal-code"
+            >Postal Code <span class="star">*</span></label
+          >
+          <input
+            type="text"
+            id="postal-code"
+            name="postal-code"
+            readonly
+            placeholder="Postal Code"
+          />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="town">Town <span class="star">*</span></label>
+          <input
+            type="text"
+            id="town"
+            name="town"
+            readonly
+            placeholder="Town"
+          />
+        </div>
+        <div class="field">
+          <label for="industry">Industry</label>
+          <select name="industry" id="industry">
+            <option value="" disabled selected>Select Industry</option>
+            <option value="Retail">Retail</option>
+            <option value="E-commerce">E-commerce</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Wholesale Distribution">
+              Wholesale Distribution
+            </option>
+            <option value="Healthcare/Pharmaceuticals">
+              Healthcare/Pharmaceuticals
+            </option>
+            <option value="Food and Beverage">Food and Beverage</option>
+            <option value="Electronics/Technology">
+              Electronics/Technology
+            </option>
+            <option value="Fashion/Apparel">Fashion/Apparel</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Construction">Construction</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Import/Export">Import/Export</option>
+            <option value="Logistics/Freight">Logistics/Freight</option>
+            <option value="Education/Books">Education/Books</option>
+            <option value="Office Supplies/Stationery">
+              Office Supplies/Stationery
+            </option>
+            <option value="Furniture/Home Goods">Furniture/Home Goods</option>
+            <option value="Event Planning/Entertainment">
+              Event Planning/Entertainment
+            </option>
+            <option value="Media/Publishing">Media/Publishing</option>
+            <option value="Telecommunications">Telecommunications</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="role">Role</label>
+          <select name="role" id="role">
+            <option value="" disabled selected>Select Role</option>
+            <option value="CEO/Founder">CEO/Founder</option>
+            <option value="Logistics Manager">Logistics Manager</option>
+            <option value="Operations Manager">Operations Manager</option>
+            <option value="Procurement Manager">Procurement Manager</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="companysize">Company Size</label>
+          <select name="companysize" id="companysize">
+            <option value="" disabled selected>Select Company Size</option>
+            <option value="Small Business">
+              Small Business - 1-10 employees
+            </option>
+            <option value="Medium Business">
+              Medium Business - 11-50 employees
+            </option>
+            <option value="Large Business">
+              Large Business - 51-200 employees
+            </option>
+            <option value="Enterprise">Enterprise - 201+ employees</option>
+            <option value="Freelancer">Freelancer/Sole Proprietor</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+    <div class="form-step">
+      <h2>Document Upload</h2>
+      <div class="group">
+        <div class="field">
+          <h3>
+            Gewerbeanmeldung (Trade Registration)
+            <span class="star">*</span>
+          </h3>
+          <label for="gewerbeanmeldung-front">Front</label>
+          <input
+            type="file"
+            id="gewerbeanmeldung-front"
+            name="gewerbeanmeldung-front"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="gewerbeanmeldung-back">Back</label>
+          <input
+            type="file"
+            id="gewerbeanmeldung-back"
+            name="gewerbeanmeldung-back"
+            required
+          />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <h3>
+            Frachtführerversicherung (Carrier Insurance)
+            <span class="star">*</span>
+          </h3>
+          <label for="frachtfuhrerversicherung-front">Front</label>
+          <input
+            type="file"
+            id="frachtfuhrerversicherung-front"
+            name="frachtfuhrerversicherung-front"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="frachtfuhrerversicherung-back">Back</label>
+          <input
+            type="file"
+            id="frachtfuhrerversicherung-back"
+            name="frachtfuhrerversicherung-back"
+            required
+          />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <h3>EU-Lizenz (EU Community License) - Optional</h3>
+          <label for="euLizenz-front">Front</label>
+          <input type="file" id="euLizenz-front" name="euLizenz-front" />
+        </div>
+        <div class="field">
+          <label for="euLizenz-back">Back</label>
+          <input type="file" id="euLizenz-back" name="euLizenz-back" />
+        </div>
+      </div>
+      <button type="button" class="prev-btn">Previous</button>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <button class="prev-btn">Previous</button>
+    <button class="next-btn">Next</button>
+    <button class="submit-btn">Submit</button>
+  </div>
+</div>
+
+<!-- Client Form -->
+<div id="clients-form" style="display: none">
+  <div class="multiStepForm-clients">
+    <div class="progress-bar">
+      <!-- Progress steps will be added dynamically -->
+    </div>
+    <div class="form-step">
+      <h2>Personal Information</h2>
+      <div class="group">
+        <div class="field">
+          <label for="fullname">Full Name <span class="star">*</span></label>
+          <input type="text" id="fullname" name="fullname" required />
+        </div>
+        <div class="field">
+          <label for="email">Email Address <span class="star">*</span></label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="phone">Phone Number <span class="star">*</span></label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="field">
+          <label for="companyname">Company Name</label>
+          <input type="text" id="companyname" name="companyname" />
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="position">Position/Title</label>
+          <input type="text" id="position" name="position" />
+        </div>
+      </div>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="form-step">
+      <h2>Business Information & Service Requirements</h2>
+      <div class="group">
+        <div class="field">
+          <label for="business-type"
+            >Business Type <span class="star">*</span></label
+          >
+          <select id="business-type" name="business-type" required>
+            <option value="" disabled selected>Select Business Type</option>
+            <option value="retail">Retail</option>
+            <option value="wholesale">Wholesale</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="service">Service</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="industry">Industry <span class="star">*</span></label>
+          <select id="industry" name="industry" required>
+            <option value="" disabled selected>Select Industry</option>
+            <option value="food-beverage">Food & Beverage</option>
+            <option value="technology">Technology</option>
+            <option value="fashion">Fashion</option>
+            <option value="automotive">Automotive</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="location"
+            >Business Location <span class="star">*</span></label
+          >
+          <input
+            type="text"
+            id="location"
+            name="location"
+            required
+            placeholder="City, State, Country"
+          />
+        </div>
+        <div class="field">
+          <label for="communication-method"
+            >Preferred Communication Method <span class="star">*</span></label
+          >
+          <select
+            id="communication-method"
+            name="communication-method"
+            required
+          >
+            <option value="" disabled selected>
+              Select Communication Method
+            </option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="service-areas"
+            >Preferred Service Areas <span class="star">*</span></label
+          >
+          <select id="service-areas" name="service-areas" required>
+            <option value="" disabled selected>Select Service Area</option>
+            <option value="local">Local (within the same city)</option>
+            <option value="regional">Regional (within the same state)</option>
+            <option value="national">National (across the country)</option>
+            <option value="international">International (cross-border)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="goods-handled"
+            >Type of Goods Handled <span class="star">*</span></label
+          >
+          <select id="goods-handled" name="goods-handled" required>
+            <option value="" disabled selected>Select Goods Type</option>
+            <option value="perishable">Perishable Goods</option>
+            <option value="non-perishable">Non-Perishable Goods</option>
+            <option value="hazardous">Hazardous Materials</option>
+            <option value="fragile">Fragile Items</option>
+            <option value="bulk">Bulk Goods</option>
+            <option value="documents">Documents</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="volume"
+            >Expected Volume <span class="star">*</span></label
+          >
+          <select id="volume" name="volume" required>
+            <option value="" disabled selected>Select Volume</option>
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="frequency"
+            >Delivery Frequency <span class="star">*</span></label
+          >
+          <select id="frequency" name="frequency" required>
+            <option value="" disabled selected>Select Frequency</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+      <div class="group">
+        <div class="field">
+          <label for="special-requirements">Special Requirements</label>
+          <textarea
+            id="special-requirements"
+            name="special-requirements"
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+      <button type="button" class="prev-btn">Previous</button>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <button class="prev-btn">Previous</button>
+    <button class="next-btn">Next</button>
+    <button class="submit-btn">Submit</button>
+  </div>
+</div>
+
+<!-- Preview Info -->
+<div id="previewInfo"></div>
