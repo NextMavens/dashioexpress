@@ -188,7 +188,7 @@ header {
   width: 80%;
   position: absolute;
   left: 10%;
-  top: -20%;
+  top: -50%;
 }
 .hero-section-2 .left {
   display: flex;
@@ -304,7 +304,7 @@ header {
   width: 100%;
   height: var(--cta-height);
   background-color: var(--light-blue-card);
-  margin-top: var(--margin-per-section);
+  margin-top: var(--margin-with-images-below);
   margin-bottom: var(--margin-per-section);
   position: relative;
 }
