@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const autocomplete = new google.maps.places.Autocomplete(
       streetAddressInput,
       {
-        types: ["address"]
+        types: ["address"],
       }
     );
 
@@ -384,9 +384,9 @@ document.addEventListener("DOMContentLoaded", function () {
         volumeOfShipment: document.getElementById("volumeofshipment").value,
         frequency: document.getElementById("frequency").value,
         specialRequirements: document.getElementById("special-requirements")
-          .value
+          .value,
       };
-    } else {
+    } else if (type === "driversform") {
       formfields = {
         fullname: `${document.getElementById("clients-firstname").value}  ${
           document.getElementById("clients-lastname").value
@@ -399,6 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
         industry: document.getElementById("industry").value,
         communicationMethod: document.getElementById("communication-method")
           .value,
+        country: document.getElementById("country").value,
         streetAddress: document.getElementById("street-address").value,
         streetNumber: document.getElementById("street-number").value,
         postalCode: document.getElementById("postal-code").value,
@@ -407,7 +408,7 @@ document.addEventListener("DOMContentLoaded", function () {
         volumeOfShipment: document.getElementById("volumeofshipment").value,
         frequency: document.getElementById("frequency").value,
         specialRequirements: document.getElementById("special-requirements")
-          .value
+          .value,
       };
     }
     const templateParams = formfields;
