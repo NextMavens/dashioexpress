@@ -25,12 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
         driversForm.style.display = "block";
         initMultiStepForm("multiStepForm");
         type = "driversform";
+        (function () {
+          emailjs.init({
+            publicKey: "Wn2dMRr2IiNLC_tcn",
+          });
+        })();
       }
     } else {
       if (clientsForm) {
         clientsForm.style.display = "block";
         initMultiStepForm("multiStepForm-clients");
         type = "clientsform";
+
+        (function () {
+          emailjs.init({
+            publicKey: "2rQNNvWwRlbdwELak",
+          });
+        })();
       }
     }
   }
@@ -429,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       );
     } else if (type === "driversform") {
-      emailjs.send("service_50gg8cn", "template_k1jtj4h", templateParams).then(
+      emailjs.send("service_j3dqnlq", "template_gtgn9am", templateParams).then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
           window.location.href = "success-page.html";

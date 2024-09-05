@@ -46,13 +46,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init({
-          publicKey: "2rQNNvWwRlbdwELak",
-        });
-      })();
-    </script>
+    <script type="text/javascript"></script>
   </head>
   <body>
     <main>
@@ -365,13 +359,27 @@
 
             <!-- Schritt 3: Bestätigung -->
             <div class="form-step" id="step3-clients">
-              <h2>Bestätigung</h2>
+              <!-- <h2>Bestätigung</h2>
               <p>
                 Bitte überprüfen Sie Ihre Angaben und bestätigen Sie die
                 Übermittlung des Formulars.
               </p>
               <div id="previewInfo">
-                <!-- Die Vorschaudaten werden hier dynamisch angezeigt -->
+              
+              </div> -->
+              <div class="group">
+                <div class="field final-row">
+                  <input
+                    type="checkbox"
+                    id="termsAgreement"
+                    name="termsAgreement"
+                    required
+                  />
+                  <label for="termsAgreement"
+                    >Ich stimme den
+                    <a href="#">Allgemeinen Geschäftsbedingungen</a> zu.</label
+                  >
+                </div>
               </div>
               <button type="submit" class="submit-btn">
                 Formular abschicken
@@ -425,9 +433,46 @@
               </div>
               <div class="group">
                 <div class="field">
+                  <label for="country">Land <span class="star">*</span></label>
+                  <select id="country" name="country" required>
+                    <option value="" disabled selected>Land auswählen</option>
+                    <option value="AT">Österreich</option>
+                    <option value="BE">Belgien</option>
+                    <option value="BG">Bulgarien</option>
+                    <option value="HR">Kroatien</option>
+                    <option value="CY">Zypern</option>
+                    <option value="CZ">Tschechische Republik</option>
+                    <option value="DK">Dänemark</option>
+                    <option value="EE">Estland</option>
+                    <option value="FI">Finnland</option>
+                    <option value="FR">Frankreich</option>
+                    <option value="DE">Deutschland</option>
+                    <option value="GR">Griechenland</option>
+                    <option value="HU">Ungarn</option>
+                    <option value="IE">Irland</option>
+                    <option value="IT">Italien</option>
+                    <option value="LV">Lettland</option>
+                    <option value="LT">Litauen</option>
+                    <option value="LU">Luxemburg</option>
+                    <option value="MT">Malta</option>
+                    <option value="NL">Niederlande</option>
+                    <option value="PL">Polen</option>
+                    <option value="PT">Portugal</option>
+                    <option value="RO">Rumänien</option>
+                    <option value="SK">Slowakei</option>
+                    <option value="SI">Slowenien</option>
+                    <option value="ES">Spanien</option>
+                    <option value="SE">Schweden</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="group">
+                <div class="field">
                   <label for="phone">Telefon <span class="star">*</span></label>
                   <input type="tel" id="phone" name="phone" required />
                 </div>
+
                 <div class="field">
                   <label for="street-address"
                     >Straße und Hausnummer <span class="star">*</span></label
@@ -648,10 +693,10 @@
 
             <!-- Schritt 3: Überprüfen und Einreichen -->
             <div class="form-step" id="step3">
-              <h2>Überprüfen und Einreichen</h2>
-              <div id="previewInfo">
-                <!-- Die Vorschaudaten werden hier dynamisch angezeigt -->
-              </div>
+              <!-- <h2>Überprüfen und Einreichen</h2> -->
+              <!-- <div id="previewInfo">
+               
+              </div> -->
               <div class="group">
                 <div class="field final-row">
                   <input
