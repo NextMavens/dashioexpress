@@ -27,9 +27,8 @@ body {
   justify-content: space-between;
 }
 
-.logo img {
-  max-width: 150px;
-  height: auto;
+.logo a img {
+  width: 40%;
 }
 
 .nav-links a {
@@ -38,7 +37,11 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
 .nav-links a:hover {
   color: var(--light-blue-button);
 }

@@ -54,6 +54,7 @@
         <div class="logo">
           <a href="#"><img src="../assets/logo.svg" alt="Firmenlogo" /></a>
         </div>
+
         <ul class="nav-links">
           <li><a href="#">Startseite</a></li>
           <li><a href="#">Über uns</a></li>
@@ -389,7 +390,14 @@
           </form>
         </div>
 
-        <div id="drivers-form" class="form-section" style="display: none">
+        <div
+          id="drivers-form"
+          class="form-section"
+          action="/submit-driver-details"
+          method="POST"
+          enctype="multipart/form-data"
+          style="display: none"
+        >
           <form id="multiStepForm">
             <div class="progress-bar">
               <div class="step active">1</div>
@@ -721,23 +729,27 @@
     <footer>
       <div class="newsletter">
         <div class="left">
-          <h2>Subscribe To Our Newsletter</h2>
+          <h2>Abonnieren Sie unseren Newsletter</h2>
           <p>
-            Subscribe to our newsletter for the latest updates from Dashio
-            Express
+            Abonnieren Sie unseren Newsletter, um die neuesten Updates von
+            Dashio Express zu erhalten.
           </p>
         </div>
         <div class="right">
           <form action="">
-            <input placeholder="Enter Email Address" required type="email" />
-            <button type="submit">Get Started</button>
+            <input
+              placeholder="E-Mail-Adresse eingeben"
+              required
+              type="email"
+            />
+            <button type="submit">Loslegen</button>
           </form>
         </div>
       </div>
       <div class="footer">
         <div class="left">
-          <img class="footer-logo" src="assets/logo.svg" alt="" />
-          <p>Delivering your goods,on time, everytime.</p>
+          <img class="footer-logo" src="../assets/logo.svg" alt="" />
+          <p>Ihre Waren, pünktlich geliefert, jedes Mal.</p>
           <div class="links">
             <a href="">
               <img class="link-icon" src="../assets/facebook-icon.svg" alt="" />
@@ -749,62 +761,63 @@
               <img class="link-icon" src="../assets/ig-icon.svg" alt="" />
             </a>
           </div>
-          <a class="footer-cta" href="">Pre-Register Now</a>
+          <a class="footer-cta" href="forms.html">Jetzt Voranmelden</a>
         </div>
         <div class="center">
           <div class="top">
-            <h2 class="foot-links-header">Nav Links</h2>
+            <h2 class="foot-links-header">Navigation</h2>
             <ul>
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Our Fleet</a></li>
-              <li><a href="">How It Works</a></li>
-              <li><a href="">Contact Us</a></li>
+              <li><a href="">Startseite</a></li>
+              <li><a href="">Über Uns</a></li>
+              <li><a href="">Unsere Flotte</a></li>
+              <li><a href="">So funktioniert's</a></li>
+              <li><a href="">Kontakt</a></li>
             </ul>
           </div>
           <div class="bottom">
-            <h2 class="foot-links-header">Portals</h2>
+            <h2 class="foot-links-header">Portale</h2>
             <ul>
-              <li><a href="">Clients Portal</a></li>
-              <li><a href="">Drivers Portal</a></li>
-              <li><a href="">Support Center</a></li>
-              <li><a href="">Account Registration</a></li>
+              <li><a href="">Kundenportal</a></li>
+              <li><a href="">Fahrerportal</a></li>
+              <li><a href="">Support-Center</a></li>
+              <li><a href="">Kontoanmeldung</a></li>
             </ul>
           </div>
         </div>
         <div class="right">
           <div class="top">
-            <h2 class="foot-links-header">Resources</h2>
+            <h2 class="foot-links-header">Ressourcen</h2>
             <ul>
-              <li><a href="">Cost Calculator</a></li>
-              <li><a href="">Privacy Policy</a></li>
-              <li><a href="">Clients Policy</a></li>
-              <li><a href="">Drivers Policy</a></li>
-              <li><a href="">Company To Company Policy</a></li>
-              <li><a href="">Terms & Conditions</a></li>
-              <li><a href="">Dispute Resolution Policy</a></li>
-              <li><a href="">Dashio Express Policy</a></li>
+              <li><a href="">Kostenrechner</a></li>
+              <li><a href="">Datenschutzrichtlinie</a></li>
+              <li><a href="">Kundenrichtlinie</a></li>
+              <li><a href="">Fahrerrichtlinie</a></li>
+              <li><a href="">Unternehmen zu Unternehmen Richtlinie</a></li>
+              <li><a href="">Allgemeine Geschäftsbedingungen</a></li>
+              <li><a href="">Streitbeilegungsrichtlinie</a></li>
+              <li><a href="">Dashio Express Richtlinie</a></li>
             </ul>
           </div>
           <div class="bottom">
-            <h2 class="foot-links-header">Partnerships</h2>
+            <h2 class="foot-links-header">Partnerschaften</h2>
             <ul>
-              <li><a href="">Apply for Partnership</a></li>
+              <li><a href="">Partnerschaft beantragen</a></li>
               <li>
                 <p>
-                  Join us in delivering excellence. If your company is
-                  interested in partnering with Dashio Express, click here to
-                  learn more and apply.
+                  Schließen Sie sich uns an und liefern Sie Exzellenz. Wenn Ihr
+                  Unternehmen daran interessiert ist, eine Partnerschaft mit
+                  Dashio Express einzugehen, klicken Sie hier, um mehr zu
+                  erfahren und sich zu bewerben.
                 </p>
               </li>
-              <li><a href="">Partner Login</a></li>
-              <li><a href="">Partnership Benefits</a></li>
-              <li><a href="">Partner Resources</a></li>
+              <li><a href="">Partner-Login</a></li>
+              <li><a href="">Partnerschaftsvorteile</a></li>
+              <li><a href="">Partnerressourcen</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <p class="copyright">© 2024 Dashio Express. All Rights Reserved.</p>
+      <p class="copyright">© 2024 Dashio Express. Alle Rechte vorbehalten.</p>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7Y9LluIgkZII9Ujw9RICV_TMPhRjVOk&libraries=places"></script>
     <script src="../js/email.js"></script>
