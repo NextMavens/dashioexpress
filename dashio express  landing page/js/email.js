@@ -367,63 +367,81 @@ document.addEventListener("DOMContentLoaded", function () {
         fullname: `${document.getElementById("clients-firstname").value}  ${
           document.getElementById("clients-lastname").value
         }`,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        companyname: document.getElementById("companyname").value,
-        position: document.getElementById("position").value,
-        businessType: document.getElementById("business-type").value,
-        industry: document.getElementById("industry").value,
-        communicationMethod: document.getElementById("communication-method")
-          .value,
+        email: document.getElementById("clients-email").value,
+        phone: document.getElementById("clients-phone").value,
+        companyname: document.getElementById("clients-companyname").value,
+        position: document.getElementById("clients-role").value,
+
         country: document.getElementById("country").value,
         streetAddress: document.getElementById("street-address").value,
         streetNumber: document.getElementById("street-number").value,
         postalCode: document.getElementById("postal-code").value,
         town: document.getElementById("town").value,
-        goodsHandled: document.getElementById("goods-handled").value,
-        volumeOfShipment: document.getElementById("volumeofshipment").value,
-        frequency: document.getElementById("frequency").value,
-        specialRequirements: document.getElementById("special-requirements")
+        businessType: document.getElementById("clients-business-type").value,
+        industry: document.getElementById("clients-industry").value,
+        communicationMethod: document.getElementById(
+          "clients-communication-method"
+        ).value,
+        goodsHandled: document.getElementById("clients-goods-handled").value,
+        volumeOfShipment: document.getElementById("clients-volumeofshipment")
           .value,
       };
     } else if (type === "driversform") {
       formfields = {
-        fullname: `${document.getElementById("clients-firstname").value}  ${
-          document.getElementById("clients-lastname").value
-        }`,
+        firstname: document.getElementById("firstname").value,
+        lastname: document.getElementById("lastname").value,
+        companyname: document.getElementById("companyname").value,
         email: document.getElementById("email").value,
         phone: document.getElementById("phone").value,
-        companyname: document.getElementById("companyname").value,
-        position: document.getElementById("position").value,
-        businessType: document.getElementById("business-type").value,
-        industry: document.getElementById("industry").value,
-        communicationMethod: document.getElementById("communication-method")
-          .value,
-        country: document.getElementById("country").value,
         streetAddress: document.getElementById("street-address").value,
         streetNumber: document.getElementById("street-number").value,
         postalCode: document.getElementById("postal-code").value,
         town: document.getElementById("town").value,
-        goodsHandled: document.getElementById("goods-handled").value,
-        volumeOfShipment: document.getElementById("volumeofshipment").value,
-        frequency: document.getElementById("frequency").value,
-        specialRequirements: document.getElementById("special-requirements")
-          .value,
+        industry: document.getElementById("industry").value,
+        role: document.getElementById("role").value,
+        companysize: document.getElementById("companysize").value,
+        gewerbeanmeldungFront: document.getElementById("gewerbeanmeldung-front")
+          .files[0],
+        gewerbeanmeldungBack: document.getElementById("gewerbeanmeldung-back")
+          .files[0],
+        frachtfuhrerversicherungFront: document.getElementById(
+          "frachtfuhrerversicherung-front"
+        ).files[0],
+        frachtfuhrerversicherungBack: document.getElementById(
+          "frachtfuhrerversicherung-back"
+        ).files[0],
+        euLizenzFront: document.getElementById("euLizenz-front").files[0], // Optional
+        euLizenzBack: document.getElementById("euLizenz-back").files[0], // Optional
+        termsAgreement: document.getElementById("termsAgreement").checked,
       };
     }
-    const templateParams = formfields;
 
-    emailjs.send("service_50gg8cn", "template_ssec7ke", templateParams).then(
-      function (response) {
-        console.log("SUCCESS!", response.status, response.text);
-        window.location.href = "success-page.html";
-      },
-      function (error) {
-        console.log("FAILED...", error);
-        alert("There was an issue sending your message. Please try again.");
-      }
-    );
+    const templateParams = formfields;
+    if (type === "clientsform") {
+      emailjs.send("service_50gg8cn", "template_ssec7ke", templateParams).then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          window.location.href = "success-page.html";
+        },
+        function (error) {
+          console.log("FAILED...", error);
+          alert("There was an issue sending your message. Please try again.");
+        }
+      );
+    } else if (type === "driversform") {
+      emailjs.send("service_50gg8cn", "template_k1jtj4h", templateParams).then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          window.location.href = "success-page.html";
+        },
+        function (error) {
+          console.log("FAILED...", error);
+          alert("There was an issue sending your message. Please try again.");
+        }
+      );
+    }
+
+    initAutocomplete();
   }
-  initAutocomplete();
 });
 // Make sure to initialize EmailJS

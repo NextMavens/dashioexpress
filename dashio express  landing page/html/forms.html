@@ -101,7 +101,7 @@
               <h2>Persönliche Informationen</h2>
               <div class="group">
                 <div class="field">
-                  <label for="firstname"
+                  <label for="clients-firstname"
                     >Vorname <span class="star">*</span></label
                   >
                   <input
@@ -112,7 +112,7 @@
                   />
                 </div>
                 <div class="field">
-                  <label for="lastname"
+                  <label for="clients-lastname"
                     >Nachname <span class="star">*</span></label
                   >
                   <input
@@ -126,13 +126,13 @@
 
               <div class="group">
                 <div class="field">
-                  <label for="phone"
+                  <label for="clients-phone"
                     >Telefonnummer <span class="star">*</span></label
                   >
                   <input type="tel" id="clients-phone" name="phone" required />
                 </div>
                 <div class="field">
-                  <label for="companyname"
+                  <label for="clients-companyname"
                     >Firmenname <span class="star">*</span></label
                   >
                   <input
@@ -145,7 +145,7 @@
               </div>
               <div class="group">
                 <div class="field">
-                  <label for="email"
+                  <label for="clients-email"
                     >E-Mail-Adresse <span class="star">*</span></label
                   >
                   <input
@@ -156,7 +156,7 @@
                   />
                 </div>
                 <div class="field">
-                  <label for="role">Position/Titel</label>
+                  <label for="clients-role">Position/Titel</label>
                   <input type="text" id="clients-role" name="role" />
                 </div>
               </div>
@@ -257,7 +257,7 @@
 
               <div class="group">
                 <div class="field">
-                  <label for="business-type">Geschäftstyp</label>
+                  <label for="clients-business-type">Geschäftstyp</label>
                   <select id="clients-business-type" name="business-type">
                     <option value="" disabled selected>
                       Geschäftstyp auswählen
@@ -270,7 +270,7 @@
                   </select>
                 </div>
                 <div class="field">
-                  <label for="industry">Branche</label>
+                  <label for="clients-industry">Branche</label>
                   <select id="clients-industry" name="industry">
                     <option value="" disabled selected>
                       Branche auswählen
@@ -289,7 +289,7 @@
 
               <div class="group">
                 <div class="field">
-                  <label for="communication-method"
+                  <label for="clients-communication-method"
                     >Bevorzugte Kommunikationsmethode</label
                   >
                   <select
@@ -309,10 +309,10 @@
               <h2>Weitere Informationen</h2>
               <div class="group">
                 <div class="field">
-                  <label for="goods-handled"
+                  <label for="clients-goods-handled"
                     >Art der transportierten Waren</label
                   >
-                  <select id="goods-handled" name="goods-handled">
+                  <select id="clients-goods-handled" name="goods-handled">
                     <option value="" disabled selected>
                       Warenart auswählen
                     </option>
@@ -330,10 +330,10 @@
               </div>
               <div class="group">
                 <div class="field">
-                  <label for="volumeofshipment"
+                  <label for="clients-volumeofshipment"
                     >Erwartetes Versandvolumen</label
                   >
-                  <select name="volumeofshipment" id="volumeofshipment">
+                  <select name="volumeofshipment" id="clients-volumeofshipment">
                     <option value="" disabled selected>
                       Volumen auswählen
                     </option>
@@ -358,31 +358,7 @@
                   </select>
                 </div>
               </div>
-              <div class="group">
-                <div class="field">
-                  <label for="services-required"
-                    >Benötigte Dienstleistungen</label
-                  >
-                  <select id="services-required" name="services-required">
-                    <option value="" disabled selected>
-                      Dienstleistung auswählen
-                    </option>
-                    <option value="standard-delivery">Standardlieferung</option>
-                    <option value="express-delivery">Expresslieferung</option>
-                    <option value="same-day-delivery">
-                      Lieferung am selben Tag
-                    </option>
-                    <option value="international-delivery">
-                      Internationale Lieferung
-                    </option>
-                    <option value="tracking">Sendungsverfolgung</option>
-                    <option value="insurance">Versicherung</option>
-                    <option value="customs">Zollabwicklung</option>
-                    <option value="packaging">Verpackung</option>
-                    <option value="other">Andere</option>
-                  </select>
-                </div>
-              </div>
+
               <button type="button" class="next-btn">Weiter</button>
               <button type="button" class="prev-btn">Zurück</button>
             </div>
@@ -394,66 +370,8 @@
                 Bitte überprüfen Sie Ihre Angaben und bestätigen Sie die
                 Übermittlung des Formulars.
               </p>
-              <div class="confirmation-summary">
-                <p>
-                  <strong>Vorname:</strong> <span id="summary-firstname"></span>
-                </p>
-                <p>
-                  <strong>Nachname:</strong> <span id="summary-lastname"></span>
-                </p>
-                <p>
-                  <strong>Telefonnummer:</strong>
-                  <span id="summary-phone"></span>
-                </p>
-                <p>
-                  <strong>Firmenname:</strong>
-                  <span id="summary-companyname"></span>
-                </p>
-                <p>
-                  <strong>E-Mail-Adresse:</strong>
-                  <span id="summary-email"></span>
-                </p>
-                <p>
-                  <strong>Position/Titel:</strong>
-                  <span id="summary-role"></span>
-                </p>
-                <p><strong>Land:</strong> <span id="summary-country"></span></p>
-                <p>
-                  <strong>Straßenadresse:</strong>
-                  <span id="summary-street-address"></span>
-                </p>
-                <p>
-                  <strong>Hausnummer:</strong>
-                  <span id="summary-street-number"></span>
-                </p>
-                <p>
-                  <strong>Postleitzahl:</strong>
-                  <span id="summary-postal-code"></span>
-                </p>
-                <p><strong>Stadt:</strong> <span id="summary-town"></span></p>
-                <p>
-                  <strong>Geschäftstyp:</strong>
-                  <span id="summary-business-type"></span>
-                </p>
-                <p>
-                  <strong>Branche:</strong> <span id="summary-industry"></span>
-                </p>
-                <p>
-                  <strong>Bevorzugte Kommunikationsmethode:</strong>
-                  <span id="summary-communication-method"></span>
-                </p>
-                <p>
-                  <strong>Art der transportierten Waren:</strong>
-                  <span id="summary-goods-handled"></span>
-                </p>
-                <p>
-                  <strong>Erwartetes Versandvolumen:</strong>
-                  <span id="summary-volumeofshipment"></span>
-                </p>
-                <p>
-                  <strong>Benötigte Dienstleistungen:</strong>
-                  <span id="summary-services-required"></span>
-                </p>
+              <div id="previewInfo">
+                <!-- Die Vorschaudaten werden hier dynamisch angezeigt -->
               </div>
               <button type="submit" class="submit-btn">
                 Formular abschicken
