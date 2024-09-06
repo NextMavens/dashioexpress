@@ -185,10 +185,10 @@ header {
   left: 18%;
 }
 .hero-arrow {
-  width: 80%;
+  width: 60%;
   position: absolute;
-  left: 10%;
-  top: -50%;
+  left: 20%;
+  top: -70%;
 }
 .hero-section-2 .left {
   display: flex;
@@ -283,7 +283,7 @@ header {
 }
 .yellow-truck {
   position: absolute;
-  top: 30%;
+  top: 20%;
   animation: dance 5s linear infinite;
 }
 /* @keyframes dance {
@@ -697,7 +697,7 @@ footer .copyright {
   .hero-arrow {
     width: 130%;
     left: -10%;
-    top: -40%;
+    top: -20%;
   }
   .cta .right .cta-guy {
     width: 90%;

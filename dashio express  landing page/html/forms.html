@@ -233,7 +233,7 @@
                     type="text"
                     id="postal-code"
                     name="postal-code"
-                    readonly
+                    required
                     placeholder="Postleitzahl"
                   />
                 </div>
@@ -243,7 +243,7 @@
                     type="text"
                     id="town"
                     name="town"
-                    readonly
+                    required
                     placeholder="Stadt"
                   />
                 </div>
@@ -354,8 +354,8 @@
                 </div>
               </div>
 
-              <button type="button" class="next-btn">Weiter</button>
               <button type="button" class="prev-btn">Zurück</button>
+              <button type="button" class="next-btn">Weiter</button>
             </div>
 
             <!-- Schritt 3: Bestätigung -->
@@ -382,23 +382,22 @@
                   >
                 </div>
               </div>
+
+              <button type="button" class="prev-btn">Zurück</button>
               <button type="submit" class="submit-btn">
                 Formular abschicken
               </button>
-              <button type="button" class="prev-btn">Zurück</button>
             </div>
           </form>
         </div>
 
-        <div
-          id="drivers-form"
-          class="form-section"
-          action="/submit-driver-details"
-          method="POST"
-          enctype="multipart/form-data"
-          style="display: none"
-        >
-          <form id="multiStepForm">
+        <div id="drivers-form" class="form-section" style="display: none">
+          <form
+            id="multiStepForm"
+            action="/submit-driver-details"
+            method="POST"
+            enctype="multipart/form-data"
+          >
             <div class="progress-bar">
               <div class="step active">1</div>
               <div class="step">2</div>
@@ -515,7 +514,7 @@
                     type="text"
                     id="postal-code"
                     name="postal-code"
-                    readonly
+                    required
                     placeholder="Postleitzahl"
                   />
                 </div>
@@ -527,7 +526,7 @@
                     type="text"
                     id="town"
                     name="town"
-                    readonly
+                    required
                     placeholder="Ort"
                   />
                 </div>
