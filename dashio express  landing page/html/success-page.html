@@ -15,8 +15,10 @@
         --light-blue-button-dark: #00a3c9;
         --background-color: #f0f0f0;
         --light-blue-card: #0033ff;
-        --grey-numbers: #999999;
+        --grey-numbers: #7a7a7a;
         --white: #ffffff;
+        --shadow-color: rgba(0, 0, 0, 0.15);
+        --hover-transform: translateY(-3px);
       }
 
       body {
@@ -34,7 +36,7 @@
         background-color: var(--white);
         padding: 50px;
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px var(--shadow-color);
         text-align: center;
         max-width: 500px;
         width: 90%;
@@ -89,13 +91,13 @@
 
       .button:hover {
         background-color: var(--light-blue-button-dark);
-        transform: translateY(-2px);
+        transform: var(--hover-transform);
       }
 
       .countdown {
         font-weight: 500;
         margin-top: 30px;
-        color: var (--grey-numbers);
+        color: var(--grey-numbers);
       }
 
       #countdown {
@@ -123,30 +125,23 @@
       <img src="../assets/logo.svg" alt="Dashio Express Logo" class="logo" />
       <h1>Vorregistrierung Erfolgreich!</h1>
       <p>
-        Vielen Dank für Ihre Registrierung bei Dashio Express! Wir haben Ihre
-        Vorregistrierung erhalten und werden mit der Überprüfung Ihrer
-        Dokumentation beginnen.
+        Vielen Dank für Ihre Registrierung bei Dashio Express! Ihre
+        Vorregistrierung war erfolgreich, und wir beginnen umgehend mit der
+        Überprüfung Ihrer eingereichten Unterlagen.
       </p>
       <p><strong>Was passiert als Nächstes?</strong></p>
       <p>
-        Unser Team wird die von Ihnen bereitgestellten Informationen und
-        Dokumente sorgfältig überprüfen. Sobald alles verifiziert ist, werden
-        wir Sie über die nächsten Schritte auf dem Laufenden halten und Sie
-        benachrichtigen, wenn unser System startet.
+        Unser Team wird Ihre Informationen und Dokumente sorgfältig prüfen.
+        Sobald der Verifizierungsprozess abgeschlossen ist, informieren wir Sie
+        umgehend über die nächsten Schritte und benachrichtigen Sie, wenn unser
+        System in Betrieb geht.
       </p>
-      <!-- <p>
-        <strong>Wichtig:</strong> Bitte überprüfen Sie Ihre E-Mails auf weitere
-        Informationen, einschließlich eines Links zum Herunterladen der
-        Richtliniendokumente. Diese Dokumente enthalten wichtige Richtlinien und
-        Anforderungen, die Sie im Rahmen des Registrierungsprozesses überprüfen
-        müssen.
-      </p> -->
       <p>
-        Falls Sie in der Zwischenzeit Fragen haben, können Sie uns gerne unter
+        Bei Fragen stehen wir Ihnen jederzeit zur Verfügung. Kontaktieren Sie
+        uns gerne unter
         <a class="email" href="mailto:support@dashioexpress.com"
           >support@dashioexpress.com</a
-        >
-        kontaktieren.
+        >.
       </p>
       <a href="../index.html" class="button">Zur Startseite</a>
       <p class="countdown">
