@@ -70,7 +70,13 @@ body {
   height: 5px;
   background-color: var(--primary-blue);
 }
-
+.drivers-button {
+  background-color: #00ceff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+}
 /* Sidebar Styles */
 .sidebar {
   position: fixed;
