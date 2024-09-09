@@ -1,120 +1,137 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Custom select functionality
   const selectElements = document.querySelectorAll(".custom-select");
+  selectElements.forEach(initializeCustomSelect);
 
-  selectElements.forEach((selectElement) => {
-    const select = selectElement.querySelector("select");
-    const selected = document.createElement("div");
-    selected.className = "select-selected";
-    selected.innerHTML = select.options[select.selectedIndex].innerHTML;
-    selectElement.appendChild(selected);
+  // Hamburger menu and sidebar functionality
+  const hamburger = document.querySelector(".hamburger");
+  const sidebar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".overlay");
+  const nav = document.querySelector(".nav");
 
-    const items = document.createElement("div");
-    items.className = "select-items select-hide";
-    for (let i = 0; i < select.options.length; i++) {
-      const item = document.createElement("div");
-      item.innerHTML = select.options[i].innerHTML;
-      item.addEventListener("click", function () {
-        const index = Array.prototype.indexOf.call(items.children, this);
-        select.selectedIndex = index;
-        selected.innerHTML = this.innerHTML;
-        items.classList.add("select-hide");
-      });
-      items.appendChild(item);
-    }
-    selectElement.appendChild(items);
+  hamburger.addEventListener("click", toggleSidebar);
+  overlay.addEventListener("click", toggleSidebar);
 
-    selected.addEventListener("click", function (e) {
-      e.stopPropagation();
-      closeAllSelect(this);
-      items.classList.toggle("select-hide");
-      this.classList.toggle("select-arrow-active");
-    });
-  });
+  // Scroll event for navbar
+  window.addEventListener("scroll", handleNavbarScroll);
 
-  function closeAllSelect(elmnt) {
-    const x = document.getElementsByClassName("select-items");
-    const y = document.getElementsByClassName("select-selected");
-    for (let i = 0; i < y.length; i++) {
-      if (elmnt === y[i]) continue;
-      y[i].classList.remove("select-arrow-active");
-    }
-    for (let i = 0; i < x.length; i++) {
-      x[i].classList.add("select-hide");
-    }
-  }
-
-  document.addEventListener("click", closeAllSelect);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+  // Industry and role select functionality
   const industrySelect = document.getElementById("industry");
   const industryOther = document.getElementById("industry_other");
-
-  industrySelect.addEventListener("change", function () {
-    if (this.value === "Other") {
-      industryOther.style.display = "block";
-    } else {
-      industryOther.style.display = "none";
-    }
-  });
-
   const roleSelect = document.getElementById("role");
   const roleOther = document.getElementById("role_other");
 
-  roleSelect.addEventListener("change", function () {
-    if (this.value === "Other") {
-      roleOther.style.display = "block";
-    } else {
-      roleOther.style.display = "none";
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const hamburger = document.querySelector(".hamburger");
-  const sidebar = document.querySelector(".sidebar");
+  industrySelect.addEventListener("change", () =>
+    toggleOtherInput(industrySelect, industryOther)
+  );
+  roleSelect.addEventListener("change", () =>
+    toggleOtherInput(roleSelect, roleOther)
+  );
 
-  hamburger.addEventListener("click", function () {
-    sidebar.classList.toggle("active");
-    hamburger.classList.toggle("active");
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const industryDropdown = document.getElementById("industry");
-  const industryOtherInput = document.getElementById("industry_other");
+  // Form submission
+  const form = document.querySelector("form");
   const successNotification = document.getElementById("success-notification");
   const errorNotification = document.getElementById("error-notification");
 
-  function toggleIndustryOther() {
-    if (industryDropdown.value === "Other") {
-      industryOtherInput.style.display = "block";
-      industryOtherInput.setAttribute("required", "required");
-    } else {
-      industryOtherInput.style.display = "none";
-      industryOtherInput.removeAttribute("required");
-    }
-  }
+  form.addEventListener("submit", handleFormSubmit);
 
-  toggleIndustryOther();
-  industryDropdown.addEventListener("change", toggleIndustryOther);
+  // Initialize the industry other input on page load
+  toggleOtherInput(industrySelect, industryOther);
+});
 
-  document.querySelector("form").addEventListener("submit", function (event) {
-    event.preventDefault();
+function initializeCustomSelect(selectElement) {
+  const select = selectElement.querySelector("select");
+  const selected = document.createElement("div");
+  selected.className = "select-selected";
+  selected.innerHTML = select.options[select.selectedIndex].innerHTML;
+  selectElement.appendChild(selected);
 
-    const form = event.target;
+  const items = document.createElement("div");
+  items.className = "select-items select-hide";
 
-    if (isSuccessful) {
-      showNotification(successNotification);
-    } else {
-      showNotification(errorNotification);
-    }
+  Array.from(select.options).forEach((option, index) => {
+    const item = document.createElement("div");
+    item.innerHTML = option.innerHTML;
+    item.addEventListener("click", function () {
+      select.selectedIndex = index;
+      selected.innerHTML = this.innerHTML;
+      items.classList.add("select-hide");
+    });
+    items.appendChild(item);
   });
 
-  function showNotification(notificationElement) {
-    notificationElement.style.display = "block";
+  selectElement.appendChild(items);
 
-    setTimeout(function () {
-      notificationElement.style.display = "none";
-    }, 5000);
+  selected.addEventListener("click", function (e) {
+    e.stopPropagation();
+    closeAllSelect(this);
+    items.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  const x = document.getElementsByClassName("select-items");
+  const y = document.getElementsByClassName("select-selected");
+  Array.from(y).forEach((item, i) => {
+    if (elmnt !== item) {
+      item.classList.remove("select-arrow-active");
+      x[i].classList.add("select-hide");
+    }
+  });
+}
+
+function toggleSidebar() {
+  const hamburger = document.querySelector(".hamburger");
+  const sidebar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".overlay");
+
+  hamburger.classList.toggle("active");
+  sidebar.classList.toggle("active");
+  overlay.style.display = overlay.style.display === "block" ? "none" : "block";
+  document.body.style.overflow =
+    document.body.style.overflow === "hidden" ? "visible" : "hidden";
+}
+
+function handleNavbarScroll() {
+  const nav = document.querySelector(".nav");
+  if (window.scrollY > 50) {
+    nav.style.backgroundColor = "rgba(240, 240, 240, 0.9)";
+    nav.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.1)";
+  } else {
+    nav.style.backgroundColor = "var(--background-color)";
+    nav.style.boxShadow = "none";
   }
-});
+}
+
+function toggleOtherInput(selectElement, otherInput) {
+  if (selectElement.value === "Other") {
+    otherInput.style.display = "block";
+    otherInput.setAttribute("required", "required");
+  } else {
+    otherInput.style.display = "none";
+    otherInput.removeAttribute("required");
+  }
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  // Add your form submission logic here
+  const isSuccessful = true; // Replace with actual form submission result
+
+  if (isSuccessful) {
+    showNotification(document.getElementById("success-notification"));
+  } else {
+    showNotification(document.getElementById("error-notification"));
+  }
+}
+
+function showNotification(notificationElement) {
+  notificationElement.style.display = "block";
+  setTimeout(() => {
+    notificationElement.style.display = "none";
+  }, 5000);
+}
+
+document.addEventListener("click", closeAllSelect);
