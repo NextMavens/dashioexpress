@@ -142,8 +142,10 @@ header .nav {
 .delivery-guy img {
   position: absolute;
   height: 100%;
+  width: 70%;
   right: 0;
   z-index: 0;
+  object-fit: cover;
 }
 .hero-content {
   position: relative;
@@ -288,7 +290,15 @@ header .nav {
     padding: 0 2rem;
   }
   .delivery-guy img {
-    opacity: 0.3;
+    width: 100%;
+  }
+  .gradient {
+    background: linear-gradient(
+      70deg,
+      rgba(240, 240, 240, 0.5) 0%,
+      rgba(240, 240, 240, 0.7) 44%,
+      rgba(240, 240, 240, 0.017) 100%
+    );
   }
   .hero-content .left .main-texts h1 {
     font-size: 2.5rem;
@@ -496,12 +506,16 @@ header .nav {
 }
 
 .cta-container .right .cta-guy {
-  width: 50%;
+  width: 70%;
   position: absolute;
   bottom: -175px;
   right: 10%;
 }
-
+@media (max-width: 1020px) {
+  .cta-container .right .cta-guy {
+    bottom: -160px;
+  }
+}
 @media (max-width: 768px) {
   .cta-container {
     flex-direction: column;
@@ -517,6 +531,7 @@ header .nav {
     position: relative;
     width: 50%;
     margin: 1rem auto 0 auto;
+    display: none;
   }
 }
 /* CTA END */
