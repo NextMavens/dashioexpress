@@ -5,15 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const clientsForm = document.getElementById("clients-form");
   const userTypeSelection = document.getElementById("user-type-selection");
   let type;
-  if (
-    driverButton &&
-    clientButton &&
-    driversForm &&
-    clientsForm &&
-    userTypeSelection
-  ) {
-    driverButton.addEventListener("click", () => showForm("driver"));
+  if (clientButton && driversForm && clientsForm && userTypeSelection) {
     clientButton.addEventListener("click", () => showForm("client"));
+    driverButton.addEventListener("click", () => showForm("driver"));
   } else {
     console.error("One or more required elements are missing.");
   }
@@ -31,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         })();
       }
-    } else {
+    } else if (userType === "client") {
+      console.log("clients clicked");
       if (clientsForm) {
         clientsForm.style.display = "block";
         initMultiStepForm("multiStepForm-clients");
